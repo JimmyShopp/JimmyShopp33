@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>JimmyShopp — Mes liens</title>
+  <meta name="description" content="Retrouve tous les liens de JimmyShopp au même endroit.">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle at 8% 12%, rgba(255,255,255,.95) 0 1.5px, transparent 2px),
+        radial-gradient(circle at 22% 76%, rgba(255,255,255,.85) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 41% 28%, rgba(255,255,255,.9) 0 1.2px, transparent 2px),
+        radial-gradient(circle at 63% 84%, rgba(255,255,255,.8) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 82% 36%, rgba(255,255,255,.9) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 94% 70%, rgba(255,255,255,.75) 0 1.5px, transparent 2px);
+      background-size: 170px 190px, 210px 230px, 260px 280px, 190px 220px, 230px 250px, 280px 300px;
+      background-position: 0 0, 30px 40px, 80px 10px, 110px 70px, 20px 120px, 140px 20px;
+      opacity: .55;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      z-index: 0;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 820px);
+      margin: 0 auto;
+      padding: 58px 22px 42px;
+      min-height: 100vh;
+    }
+    .top {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 54px;
+    }
+    .share {
+      width: 54px;
+      height: 54px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 2px 14px rgba(0,0,0,.04);
+      font-size: 25px;
+      cursor: pointer;
+    }
+    .profile { text-align: center; }
+    .avatar {
+      width: 176px;
+      height: 176px;
+      border-radius: 50%;
+      margin: 0 auto 26px;
+      background: #d9dde2;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      font-size: 46px;
+      font-weight: 800;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    h1 {
+      color: #fff;
+      font-size: clamp(36px, 8vw, 58px);
+      line-height: 1;
+      margin: 0 0 18px;
+      font-weight: 800;
+      letter-spacing: -1.8px;
+    }
+    .bio {
+      color: #fff;
+      max-width: 700px;
+      margin: 0 auto 42px;
+      font-size: clamp(18px, 4.2vw, 27px);
+      line-height: 1.38;
+      font-weight: 600;
+    }
+    .links { display: grid; gap: 16px; }
+    .links + .links { margin-top: 16px; }
+    .link {
+      min-height: 112px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 70px;
+      background: #fff;
+      border-radius: 22px;
+      color: #080808;
+      text-decoration: none;
+      font-size: clamp(19px, 4.5vw, 27px);
+      font-weight: 650;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,.02);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .link:active { transform: scale(.985); }
+    .icon {
+      position: absolute;
+      left: 27px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      font-size: 31px;
+    }
+    .dots {
+      position: absolute;
+      right: 22px;
+      color: #858585;
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 28px;
+      color: #fff;
+      font-size: 14px;
+    }
+    @media (min-width: 700px) {
+      .page { padding-top: 70px; }
+      .link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 22px rgba(0,0,0,.07);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top">
+      <button class="share" aria-label="Partager" onclick="sharePage()">↗</button>
+    </div>
+
+    <section class="profile">
+      <div class="avatar" id="avatar"><img src="jimmyshopp-avatar.jpeg" alt="JimmyShopp"></div>
+      <h1>JimmyShopp</h1>
+      <p class="bio">Retrouve tous mes contacts et mes différents liens au même endroit.</p>
+    </section>
+
+    <section class="links" aria-label="Mes liens">
+      <a class="link" href="https://t.me/Nono33livr" target="_blank" rel="noopener">
+        <span class="icon telegram-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <circle cx="24" cy="24" r="22" fill="#229ED9"/>
+            <path fill="#fff" d="M35.8 12.9 31.7 35c-.3 1.6-1.2 2-2.5 1.3l-6.9-5.1-3.3 3.2c-.4.4-.7.7-1.4.7l.5-7 12.7-11.5c.6-.5-.1-.8-.9-.3L14.2 26.1l-6.8-2.1c-1.5-.5-1.5-1.5.3-2.2l26.5-10.2c1.2-.5 2.2.3 1.8 1.3Z"/>
+          </svg>
+        </span>
+        <span>CONTACT TELEGRAM</span>
+        <span class="dots">⋮</span>
+      </a>
+
+      <a class="link" href="https://wa.me/33695164625" target="_blank" rel="noopener">
+        <span class="icon">💬</span>
+        <span>CONTACT WHATSAPP</span>
+        <span class="dots">⋮</span>
+      </a>
+    </section>
+
+    <section class="links" aria-label="Réseaux sociaux">
+
+      <a class="link" href="https://whatsapp.com/channel/0029VbDgDYH4CrfYaSxVCm2a" target="_blank" rel="noopener">
+        <span class="icon whatsapp-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <circle cx="24" cy="24" r="22" fill="#25D366"/>
+            <path fill="#fff" d="M34.6 13.4A15 15 0 0 0 24 9a15 15 0 0 0-12.9 22.7L9 39l7.5-2a15 15 0 0 0 7.5 2h.1a15 15 0 0 0 10.5-25.6Zm-10.5 23a12.4 12.4 0 0 1-6.3-1.7l-.5-.3-4.5 1.2 1.2-4.4-.3-.5a12.4 12.4 0 1 1 10.4 5.7Zm6.8-9.3c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.5-.2.3-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.9s1.2 3.4 1.4 3.7c.2.3 2.3 3.6 5.6 5 3.3 1.4 3.3.9 3.9.9.6-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5Z"/>
+          </svg>
+        </span>
+        <span>CANAL WHATSAPP</span>
+        <span class="dots">⋮</span>
+      </a>
+
+      <a class="link" href="https://t.me/JimmyShopp" target="_blank" rel="noopener">
+        <span class="icon">📢</span>
+        <span>CANAL TELEGRAM</span>
+        <span class="dots">⋮</span>
+      </a>
+
+      <a class="link" href="https://www.snapchat.com/add/RapideQuali" target="_blank" rel="noopener">
+        <span class="icon">👻</span>
+        <span>SNAPCHAT</span>
+        <small style="position:absolute;left:0;right:0;bottom:12px;font-size:12px;font-weight:500;color:#777;">RapideQuali</small>
+        <span class="dots">⋮</span>
+      </a>
+    </section>
+
+    <div class="footer">JimmyShopp</div>
+  </main>
+
+  <script>
+    async function sharePage() {
+      const data = {
+        title: "JimmyShopp",
+        text: "Retrouve tous les liens de JimmyShopp",
+        url: window.location.href
+      };
+      if (navigator.share) {
+        try { await navigator.share(data); } catch (e) {}
+      } else {
+        await navigator.clipboard?.writeText(window.location.href);
+        alert("Lien copié !");
+      }
+    }
+  </script>
+
+</body>
+</html>
